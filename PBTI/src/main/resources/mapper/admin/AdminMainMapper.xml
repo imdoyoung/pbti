@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pbti.capstone.project.admin.mapper.AdminMainMapper">
+    
+    <!-- 메인 통계 조회 -->
+    <select id="selectStatistics" parameterType="hashmap" resultType="hashmap">
+    	/* AdminMainMapper.selectStatistics */
+    	
+		SELECT
+					*
+			FROM
+					PBTI_USR
+    
+    </select>
+    
+</mapper>

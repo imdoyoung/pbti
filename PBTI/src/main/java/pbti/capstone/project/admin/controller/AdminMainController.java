@@ -1,0 +1,62 @@
+package pbti.capstone.project.admin.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import lombok.Data;
+import pbti.capstone.project.admin.service.AdminMainService;
+
+
+@Controller
+@RequestMapping("/admin/main")
+public class AdminMainController {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(AdminMainController.class);
+	
+	@Autowired
+    AdminMainService service;
+	
+	
+	/**
+	 * 메인 화면 진입
+	 * @param	 
+	 * @return	 String
+	 * @throws  Exception 
+	 **/
+	@GetMapping("")
+	public String main() throws Exception {
+		
+		LOG.info("##### AdminMainController [main] called #####");
+		
+		return "admin/main";
+		
+	}
+	
+	
+	/**
+	 * 메인 통계 조회
+	 * @param	 HashMap
+	 * @return	 WebResult
+	 * @throws  Exception 
+	 **/
+	@PostMapping("/selectStatistics")
+	@ResponseBody
+	public List<HashMap<String, Object>> selectStatistics(@RequestBody HashMap<String, Object> param) throws Exception {
+		
+		LOG.info("##### AdminMainController [selectStatistics] called #####");
+		
+		return service.selectStatistics(param);
+		
+	}	
+	
+}

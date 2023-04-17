@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- admin -->
+	<definition name="admin-layout" template="/WEB-INF/views/layout/admin/main.jsp">
+		<put-attribute name="headerAdmin" value="/WEB-INF/views/layout/admin/header.jsp" />
+		<put-attribute name="bodyAdmin" value="" />
+		<put-attribute name="footerAdmin" value="/WEB-INF/views/layout/admin/footer.jsp" />
+	</definition>
+
+	<!-- admin root -->	
+	<definition name="admin/*" extends="admin-layout">
+		<put-attribute name="bodyAdmin" value="/WEB-INF/views/admin/{1}.jsp" />
+	</definition>
+	
+	<definition name="admin/*/*" extends="admin-layout">
+		<put-attribute name="bodyAdmin" value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="admin/*/*/*" extends="admin-layout">
+		<put-attribute name="bodyAdmin" value="/WEB-INF/views/admin/{1}/{2}/{3}.jsp" />
+	</definition>
+	
+
+	<!-- member -->
+	<definition name="member-layout" template="/WEB-INF/views/layout/member/main.jsp">
+		<put-attribute name="headerMember" value="/WEB-INF/views/layout/member/header.jsp" />
+		<put-attribute name="bodyMember" value="" />
+		<put-attribute name="footerMember" value="/WEB-INF/views/layout/member/footer.jsp" />
+	</definition>
+
+	<!-- member root -->   
+	<definition name="member/*" extends="member-layout">
+		<put-attribute name="bodyMember" value="/WEB-INF/views/member/{1}.jsp" />
+	</definition>
+	
+	<definition name="member/*/*" extends="member-layout">
+		<put-attribute name="bodyMember" value="/WEB-INF/views/member/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="member/*/*/*" extends="member-layout">
+		<put-attribute name="bodyMember" value="/WEB-INF/views/member/{1}/{2}/{3}.jsp" />
+	</definition>
+	
+
+</tiles-definitions>
